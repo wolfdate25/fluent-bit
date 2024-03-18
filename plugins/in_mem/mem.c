@@ -109,6 +109,9 @@ static int mem_calc(struct flb_in_mem_info *m_info)
 
     m_info->mem_used      = m_info->mem_total - m_info->mem_free;
 
+    m_info->mem_shared    = calc_kb(info.sharedram, info.mem_unit);
+    m_info->mem_buffered  = calc_kb(info.bufferram, info.mem_unit);
+
     m_info->swap_total    = calc_kb(info.totalswap, info.mem_unit);
     m_info->swap_free     = calc_kb(info.freeswap, info.mem_unit);
     m_info->swap_used     = m_info->swap_total - m_info->swap_free;
